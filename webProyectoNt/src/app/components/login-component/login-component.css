@@ -1,0 +1,232 @@
+/* ==== CENTRAR EL LOGIN EN TODA LA PANTALLA ==== */
+.page-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--k-light);
+}
+
+/* ==== Paleta Konrad Lorenz ==== */
+:root {
+    --k-primary: #D22058;
+    --k-primary-dark: #b81d4c;
+    --k-accent: #CEDC36;
+    --k-secondary: #688A88;
+    --k-secondary-dark: #56716e;
+    --k-text: #555258;
+    --k-light: #FEFEFE;
+    --k-gray: #C8C7C8;
+    --k-gray-light: #e9e9e9;
+    --k-shadow: rgba(0, 0, 0, 0.12);
+    --k-shadow-dark: rgba(0, 0, 0, 0.15);
+}
+
+/* ==== RESET ==== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: var(--k-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.5;
+}
+
+/* ==== TARJETA LOGIN ==== */
+.login-container {
+    width: 100%;
+    max-width: 380px;
+    padding: 32px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0px 4px 18px var(--k-shadow);
+    text-align: center;
+    border-top: 6px solid var(--k-primary);
+}
+
+.login-container h2 {
+    color: var(--k-text);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* ==== FORMULARIO ==== */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px 16px;
+    margin: 8px 0;
+    border: 1px solid var(--k-gray);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    background: var(--k-light);
+}
+
+input:focus {
+    border-color: var(--k-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(210, 32, 88, 0.1);
+}
+
+/* ==== BOTONES ==== */
+.btn {
+    width: 100%;
+    padding: 12px 16px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--k-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--k-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px var(--k-shadow);
+}
+
+.btn-secondary {
+    background: var(--k-secondary);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: var(--k-secondary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px var(--k-shadow);
+}
+
+/* ==== ENLACE REGISTRO ==== */
+.register-link {
+    margin-top: 15px;
+    color: var(--k-primary);
+    cursor: pointer;
+    font-weight: 600;
+    display: inline-block;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.register-link:hover {
+    color: var(--k-primary-dark);
+    text-decoration: underline;
+}
+
+/* ==== MODAL REGISTRO ==== */
+#modal-registro {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-card {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0px 8px 24px var(--k-shadow-dark);
+    border-top: 6px solid var(--k-primary);
+    position: relative;
+}
+
+.modal-card h3 {
+    margin-bottom: 20px;
+    color: var(--k-text);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: var(--k-gray);
+    color: var(--k-text);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    float: right;
+}
+
+.close-btn:hover {
+    background: var(--k-gray-light);
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 480px) {
+    .login-container,
+    .modal-card {
+        padding: 24px 20px;
+        margin: 10px;
+    }
+    
+    .login-container h2,
+    .modal-card h3 {
+        font-size: 1.25rem;
+    }
+    
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    .btn {
+        padding: 10px 14px;
+        font-size: 15px;
+    }
+}
+
+/* ==== MEJORAS DE ACCESIBILIDAD ==== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
+
+/* Focus visible para mejor accesibilidad */
+button:focus-visible,
+input:focus-visible,
+.register-link:focus-visible {
+    outline: 2px solid var(--k-primary);
+    outline-offset: 2px;
+}
+

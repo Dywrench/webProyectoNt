@@ -1,1 +1,26 @@
-<p>login-component works!</p>
+<div class="login-container">
+    <h2>Iniciar Sesión</h2>
+
+    <input type="text" [(ngModel)]="usuario" placeholder="Usuario">
+    <input type="password" [(ngModel)]="password" placeholder="Contraseña">
+
+    <button class="btn btn-primary" (click)="login()">Ingresar</button>
+
+    <span class="register-link" (click)="abrirRegistro()">¿No tienes cuenta? Registrar</span>
+</div>
+
+<!-- MODAL DE REGISTRO -->
+<div id="modal-registro" [class.visible]="modalVisible">
+    <div class="modal-card">
+        <h3>Registrar Usuario</h3>
+
+        <input type="text" [(ngModel)]="regNombre" placeholder="Nombre">
+        <input type="email" [(ngModel)]="regEmail" placeholder="Correo">
+        <input type="text" [(ngModel)]="regUsuario" placeholder="Usuario">
+        <input type="password" [(ngModel)]="regPass" placeholder="Contraseña">
+
+        <button class="btn btn-primary" (click)="registrarUsuario()">Crear Cuenta</button>
+
+        <span class="close-btn" (click)="cerrarRegistro()">Cerrar</span>
+    </div>
+</div>
