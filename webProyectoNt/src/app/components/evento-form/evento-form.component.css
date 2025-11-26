@@ -1,0 +1,46 @@
+.evento-form {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 24px;
+}
+
+.evento-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.btn-volver {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #555;
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input,
+textarea,
+select {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.btn-guardar {
+  margin-top: 12px;
+  align-self: flex-end;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #D22058;
+  color: #fff;
+  font-weight: 600;
+}

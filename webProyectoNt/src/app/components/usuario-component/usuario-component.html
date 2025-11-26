@@ -7,6 +7,10 @@
   <div class="usuario-actions">
     <button class="btn btn-primary" (click)="irAEventos()">Ver eventos disponibles</button>
     <button class="btn btn-secondary" (click)="irAMisInscripciones()">Mis inscripciones</button>
+    <ng-container *ngIf="rolUsuario === 'administrador'">
+      <button class="btn btn-secondary" (click)="irAAdminEventos()">Administrar eventos</button>
+      <button class="btn btn-primary" (click)="irACrearEvento()">Crear nuevo evento</button>
+    </ng-container>
   </div>
 
   <div class="usuario-footer">

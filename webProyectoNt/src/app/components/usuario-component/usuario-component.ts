@@ -35,6 +35,14 @@ export class UsuarioComponent implements OnInit {
     this.router.navigate(['/mis-inscripciones']);
   }
 
+  irAAdminEventos(): void {
+    this.router.navigate(['/admin/eventos']);
+  }
+
+  irACrearEvento(): void {
+    this.router.navigate(['/admin/eventos/nuevo']);
+  }
+
   cerrarSesion(): void {
     this.authService.logout();
     this.router.navigate(['/login']);

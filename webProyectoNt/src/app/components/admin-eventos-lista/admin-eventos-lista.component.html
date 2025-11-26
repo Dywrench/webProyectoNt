@@ -1,0 +1,40 @@
+<div class="admin-eventos">
+  <div class="admin-header">
+    <button class="btn-volver" routerLink="/usuario">&#8592; Volver al inicio</button>
+    <h2>Administrar eventos</h2>
+    <button class="btn-crear" (click)="irACrear()">Crear nuevo evento</button>
+  </div>
+
+  <p *ngIf="cargando">Cargando eventos...</p>
+  <p *ngIf="error">{{ error }}</p>
+
+  <div *ngIf="!cargando && !error && eventos.length === 0">
+    No hay eventos creados.
+  </div>
+
+  <table class="tabla-eventos" *ngIf="!cargando && eventos.length > 0">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Fecha</th>
+        <th>Lugar</th>
+        <th>Categoría</th>
+        <th>Capacidad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of eventos">
+        <td>{{ e.nombre }}</td>
+        <td>{{ e.fecha | date:'mediumDate' }} {{ e.horaInicio }}</td>
+        <td>{{ e.lugar }}</td>
+        <td>{{ e.categoria }}</td>
+        <td>{{ e.capacidad }}</td>
+        <td>
+          <button class="btn-accion" (click)="editar(e._id)">Editar</button>
+          <button class="btn-accion btn-eliminar" (click)="eliminar(e._id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
