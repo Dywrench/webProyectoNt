@@ -1,32 +1,253 @@
 .mis-inscripciones {
   max-width: 900px;
   margin: 40px auto;
-  padding: 24px;
+  padding: 32px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: fadeInUp 0.6s ease-out;
 }
 
 .mis-inscripciones-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .btn-volver {
   border: none;
-  background: transparent;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   cursor: pointer;
-  color: #555;
+  color: white;
   font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-volver:hover {
+  transform: translateX(-4px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-volver:active {
+  transform: translateX(0);
+}
+
+.mis-inscripciones-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+  background: linear-gradient(135deg, #2d3748, #4a5568);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.mis-inscripciones p {
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+  font-size: 1.1rem;
+}
+
+.mis-inscripciones p:not(.inscripcion-card p) {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #4a5568;
+}
+
+.mis-inscripciones p:not(.inscripcion-card p):nth-child(3) {
+  background: linear-gradient(135deg, #fff5f5, #fed7d7);
+  border: 1px solid #feb2b2;
+  color: #c53030;
+  font-weight: 500;
+}
+
+.mis-inscripciones > div:not(.mis-inscripciones-header):not(.inscripcion-card) {
+  text-align: center;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #f7fafc, #edf2f7);
+  border: 2px dashed #cbd5e0;
+  border-radius: 16px;
+  color: #718096;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 40px 0;
 }
 
 .inscripcion-card {
-  border-radius: 12px;
-  padding: 16px 20px;
-  margin-bottom: 16px;
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ffffff, #fcfcfc);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f1f1f1;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.inscripcion-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(135deg, #D22058, #ff6b9d);
+  border-radius: 6px 0 0 6px;
+}
+
+.inscripcion-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .inscripcion-card h3 {
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2d3748;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inscripcion-card h3::before {
+  content: '🎯';
+  font-size: 1.2rem;
+}
+
+.inscripcion-card p {
   margin-bottom: 8px;
+  color: #4a5568;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.inscripcion-card p:first-of-type {
+  color: #718096;
+  font-style: italic;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.inscripcion-card strong {
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.inscripcion-card p:has(strong:contains("Estado:")) {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.inscripcion-card p:has(strong:contains("Estado:")) {
+  background: #e6fffa;
+  color: #234e52;
+  border: 1px solid #81e6d9;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.inscripcion-card {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .mis-inscripciones {
+    margin: 20px 16px;
+    padding: 24px 20px;
+  }
+  
+  .mis-inscripciones-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  
+  .btn-volver {
+    align-self: flex-start;
+  }
+  
+  .mis-inscripciones-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .inscripcion-card {
+    padding: 20px 16px;
+  }
+  
+  .inscripcion-card h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mis-inscripciones {
+    padding: 16px;
+  }
+  
+  .mis-inscripciones-header h2 {
+    font-size: 1.4rem;
+  }
+  
+  .btn-volver {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .inscripcion-card {
+    padding: 16px 12px;
+  }
+}
+
+.cargando-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 8px;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
