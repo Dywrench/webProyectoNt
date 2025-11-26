@@ -16,27 +16,27 @@ export class EventoService {
 
   constructor(private http: HttpClient) {}
 
-  getEventos(): Observable<any> {
+  getEventos() {
     return this.http.get(this.apiUri);
   }
 
-  getEvento(id: string): Observable<any> {
+  getEvento(id: string) {
     return this.http.get(`${this.apiUri}/${id}`);
   }
 
-  createEvento(evento: any): Observable<any> {
+  createEvento(evento: any) {
     return this.http.post(this.apiUri, evento, {
       headers: this.httpOptions
     });
   }
 
-  updateEvento(id: string, evento: any): Observable<any> {
+  updateEvento(id: string, evento: any) {
     return this.http.put(`${this.apiUri}/${id}`, evento, {
       headers: this.httpOptions
     });
   }
 
-  deleteEvento(id: string): Observable<any> {
+  deleteEvento(id: string) {
     return this.http.delete(`${this.apiUri}/${id}`);
   }
 }

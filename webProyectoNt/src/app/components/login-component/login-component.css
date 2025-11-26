@@ -158,6 +158,10 @@ input:focus {
     padding: 20px;
 }
 
+#modal-registro.visible {
+    display: flex;
+}
+
 .modal-card {
     width: 100%;
     max-width: 400px;

@@ -16,27 +16,27 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) {}
 
-  getUsuarios(): Observable<any> {
+  getUsuarios() {
     return this.http.get(this.apiUri);
   }
 
-  getUsuario(id: string): Observable<any> {
+  getUsuario(id: string) {
     return this.http.get(`${this.apiUri}/${id}`);
   }
 
-  createUsuario(usuario: any): Observable<any> {
+  createUsuario(usuario: any) {
     return this.http.post(this.apiUri, usuario, {
       headers: this.httpOptions
     });
   }
 
-  updateUsuario(id: string, usuario: any): Observable<any> {
+  updateUsuario(id: string, usuario: any) {
     return this.http.put(`${this.apiUri}/${id}`, usuario, {
       headers: this.httpOptions
     });
   }
 
-  deleteUsuario(id: string): Observable<any> {
+  deleteUsuario(id: string) {
     return this.http.delete(`${this.apiUri}/${id}`);
   }
 }
