@@ -1,33 +1,23 @@
-<div class="login-container">
-    <h2>Iniciar Sesión</h2>
-
-    <input type="text" [(ngModel)]="usuario" placeholder="Usuario">
-    <input type="password" [(ngModel)]="password" placeholder="Contraseña">
-
-    <button class="btn btn-primary" (click)="login()">Ingresar</button>
-
-    <span class="register-link" (click)="abrirRegistro()">¿No tienes cuenta? Registrar</span>
-</div>
-
-<!-- MODAL DE REGISTRO -->
-<div id="modal-registro" [class.visible]="modalVisible">
-    <div class="modal-card">
-        <h3>Registrar Usuario</h3>
-
-        <input type="text" name="regNombre" #regNombreRef="ngModel" [(ngModel)]="regNombre" placeholder="Nombre" required>
-        <small *ngIf="regNombreRef.invalid && regNombreRef.touched">El nombre es obligatorio.</small>
-
-        <input type="text" name="regApellido" #regApellidoRef="ngModel" [(ngModel)]="regApellido" placeholder="Apellido" required>
-        <small *ngIf="regApellidoRef.invalid && regApellidoRef.touched">El apellido es obligatorio.</small>
-
-        <input type="email" name="regEmail" #regEmailRef="ngModel" [(ngModel)]="regEmail" placeholder="Correo" required email>
-        <small *ngIf="regEmailRef.invalid && regEmailRef.touched">Ingresa un correo válido.</small>
-
-        <input type="password" name="regPass" #regPassRef="ngModel" [(ngModel)]="regPass" placeholder="Contraseña" required minlength="6">
-        <small *ngIf="regPassRef.invalid && regPassRef.touched">La contraseña debe tener al menos 6 caracteres.</small>
-
-        <button class="btn btn-primary" (click)="registrarUsuario()">Crear Cuenta</button>
-
-        <span class="close-btn" (click)="cerrarRegistro()">Cerrar</span>
+<div class="login-with-header">
+    <div class="header-container">
+        <div class="logo-section">
+            <div class="logo-circle">
+                <span class="logo-k">K</span>
+            </div>
+            <h1 class="welcome-title">Bienvenidos a zona K</h1>
+            <p class="welcome-subtitle">KonEventos - Plataforma oficial de eventos</p>
+        </div>
+    </div>
+    
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <div class="form-group">
+            <input type="text" [(ngModel)]="usuario" placeholder="Usuario">
+        </div>
+        <div class="form-group">
+            <input type="password" [(ngModel)]="password" placeholder="Contraseña">
+        </div>
+        <button class="btn btn-primary" (click)="login()">Ingresar</button>
+        <span class="register-link" (click)="abrirRegistro()">¿No tienes cuenta? Registrar</span>
     </div>
 </div>

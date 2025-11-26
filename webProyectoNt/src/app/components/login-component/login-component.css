@@ -1,149 +1,93 @@
-/* ==== CENTRAR EL LOGIN EN TODA LA PANTALLA ==== */
+/* ==== ESTILOS LOGIN COMPONENT ==== */
+:host {
+    display: block;
+    width: 100%;
+    height: 100vh;
+}
+
 .page-wrapper {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--k-light);
-}
-
-/* ==== Paleta Konrad Lorenz ==== */
-:root {
-    --k-primary: #D22058;
-    --k-primary-dark: #b81d4c;
-    --k-accent: #CEDC36;
-    --k-secondary: #688A88;
-    --k-secondary-dark: #56716e;
-    --k-text: #555258;
-    --k-light: #FEFEFE;
-    --k-gray: #C8C7C8;
-    --k-gray-light: #e9e9e9;
-    --k-shadow: rgba(0, 0, 0, 0.12);
-    --k-shadow-dark: rgba(0, 0, 0, 0.15);
-}
-
-/* ==== RESET ==== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-html, body {
-    height: 100%;
-}
-
-body {
-    background: var(--k-light);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    background: linear-gradient(135deg, #e8f5e8 0%, #f0f9f0 100%);
     padding: 20px;
-    line-height: 1.5;
 }
 
-/* ==== TARJETA LOGIN ==== */
 .login-container {
     width: 100%;
-    max-width: 380px;
-    padding: 32px;
+    max-width: 400px;
+    padding: 40px;
     background: white;
     border-radius: 16px;
-    box-shadow: 0px 4px 18px var(--k-shadow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
-    border-top: 6px solid var(--k-primary);
 }
 
 .login-container h2 {
-    color: var(--k-text);
-    margin-bottom: 20px;
-    font-size: 1.5rem;
+    color: #D22058;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
     font-weight: 600;
 }
 
-/* ==== FORMULARIO ==== */
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-align: left;
 }
 
 input[type="text"],
-input[type="password"],
-input[type="email"] {
+input[type="password"] {
     width: 100%;
-    padding: 12px 16px;
-    margin: 8px 0;
-    border: 1px solid var(--k-gray);
-    border-radius: 8px;
-    transition: all 0.2s ease;
-    font-size: 14px;
-    background: var(--k-light);
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
-input:focus {
-    border-color: var(--k-primary);
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #D22058;
     outline: none;
     box-shadow: 0 0 0 3px rgba(210, 32, 88, 0.1);
 }
 
-/* ==== BOTONES ==== */
 .btn {
     width: 100%;
-    padding: 12px 16px;
-    margin-top: 10px;
+    padding: 15px;
+    background: #D22058;
+    color: white;
     border: none;
-    cursor: pointer;
     border-radius: 10px;
     font-size: 16px;
     font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-}
-
-.btn-primary {
-    background: var(--k-primary);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: var(--k-primary-dark);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px var(--k-shadow);
-}
-
-.btn-secondary {
-    background: var(--k-secondary);
-    color: white;
-}
-
-.btn-secondary:hover {
-    background: var(--k-secondary-dark);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px var(--k-shadow);
-}
-
-/* ==== ENLACE REGISTRO ==== */
-.register-link {
-    margin-top: 15px;
-    color: var(--k-primary);
     cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: #D22058;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(210, 32, 88, 0.3);
+}
+
+.register-link {
+    display: block;
+    margin-top: 20px;
+    color: #D22058;
     font-weight: 600;
-    display: inline-block;
+    cursor: pointer;
     text-decoration: none;
-    transition: color 0.2s ease;
 }
 
 .register-link:hover {
-    color: var(--k-primary-dark);
     text-decoration: underline;
 }
 
-/* ==== MODAL REGISTRO ==== */
+/* ==== MODAL ==== */
 #modal-registro {
     display: none;
     position: fixed;
@@ -151,11 +95,10 @@ input:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    padding: 20px;
 }
 
 #modal-registro.visible {
@@ -163,74 +106,106 @@ input:focus {
 }
 
 .modal-card {
-    width: 100%;
-    max-width: 400px;
     background: white;
-    padding: 32px;
+    padding: 40px;
     border-radius: 16px;
-    box-shadow: 0px 8px 24px var(--k-shadow-dark);
-    border-top: 6px solid var(--k-primary);
-    position: relative;
-}
-
-.modal-card h3 {
-    margin-bottom: 20px;
-    color: var(--k-text);
-    font-size: 1.3rem;
-    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
 }
 
 .close-btn {
-    background: var(--k-gray);
-    color: var(--k-text);
-    padding: 8px 16px;
+    background: #e0e0e0;
+    color: #333;
+    padding: 10px 20px;
     border: none;
-    border-radius: 6px;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 20px;
+}
+/* ==== ESTILOS PARA EL TÍTULO ZONA K ==== */
+.welcome-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.welcome-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #D22058 0%, #CEDC36 50%, #688A88 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.welcome-subtitle {
+    font-size: 1.1rem;
+    color: #688A88;
     font-weight: 500;
-    transition: all 0.2s ease;
-    float: right;
+    letter-spacing: 0.5px;
 }
 
-.close-btn:hover {
-    background: var(--k-gray-light);
+/* ==== LAYOUT CON TÍTULO ==== */
+.login-with-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #e8f5e8 0%, #f0f9f0 100%);
 }
 
-/* ==== RESPONSIVE ==== */
-@media (max-width: 480px) {
-    .login-container,
-    .modal-card {
-        padding: 24px 20px;
-        margin: 10px;
-    }
-    
-    .login-container h2,
-    .modal-card h3 {
-        font-size: 1.25rem;
-    }
-    
-    input[type="text"],
-    input[type="password"],
-    input[type="email"],
-    .btn {
-        padding: 10px 14px;
-        font-size: 15px;
-    }
+.header-container {
+    margin-bottom: 40px;
+    text-align: center;
+    max-width: 600px;
 }
 
-/* ==== MEJORAS DE ACCESIBILIDAD ==== */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        transition: none !important;
-    }
+/* Versión minimalista del título */
+.welcome-minimal {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #D22058;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
 }
 
-/* Focus visible para mejor accesibilidad */
-button:focus-visible,
-input:focus-visible,
-.register-link:focus-visible {
-    outline: 2px solid var(--k-primary);
-    outline-offset: 2px;
+.welcome-minimal::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #D22058, #CEDC36);
+    border-radius: 2px;
+}
+.logo-section {
+    text-align: center;
 }
 
+.logo-circle {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #D22058, #CEDC36);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 20px rgba(210, 32, 88, 0.3);
+}
+
+.logo-k {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
+}
