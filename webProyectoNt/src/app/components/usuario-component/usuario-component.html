@@ -1,1 +1,15 @@
-<p>usuario-component works!</p>
+<div class="usuario-dashboard">
+  <div class="usuario-header">
+    <h1>Bienvenido, {{ nombreUsuario || 'Usuario' }}</h1>
+    <p class="usuario-rol" *ngIf="rolUsuario">Rol: {{ rolUsuario }}</p>
+  </div>
+
+  <div class="usuario-actions">
+    <button class="btn btn-primary" (click)="irAEventos()">Ver eventos disponibles</button>
+    <button class="btn btn-secondary" (click)="irAMisInscripciones()">Mis inscripciones</button>
+  </div>
+
+  <div class="usuario-footer">
+    <button class="btn btn-outline" (click)="cerrarSesion()">Cerrar sesión</button>
+  </div>
+</div>

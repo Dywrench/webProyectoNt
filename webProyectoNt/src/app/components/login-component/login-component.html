@@ -14,10 +14,17 @@
     <div class="modal-card">
         <h3>Registrar Usuario</h3>
 
-        <input type="text" [(ngModel)]="regNombre" placeholder="Nombre">
-        <input type="text" [(ngModel)]="regApellido" placeholder="Apellido">
-        <input type="email" [(ngModel)]="regEmail" placeholder="Correo">
-        <input type="password" [(ngModel)]="regPass" placeholder="Contraseña">
+        <input type="text" name="regNombre" #regNombreRef="ngModel" [(ngModel)]="regNombre" placeholder="Nombre" required>
+        <small *ngIf="regNombreRef.invalid && regNombreRef.touched">El nombre es obligatorio.</small>
+
+        <input type="text" name="regApellido" #regApellidoRef="ngModel" [(ngModel)]="regApellido" placeholder="Apellido" required>
+        <small *ngIf="regApellidoRef.invalid && regApellidoRef.touched">El apellido es obligatorio.</small>
+
+        <input type="email" name="regEmail" #regEmailRef="ngModel" [(ngModel)]="regEmail" placeholder="Correo" required email>
+        <small *ngIf="regEmailRef.invalid && regEmailRef.touched">Ingresa un correo válido.</small>
+
+        <input type="password" name="regPass" #regPassRef="ngModel" [(ngModel)]="regPass" placeholder="Contraseña" required minlength="6">
+        <small *ngIf="regPassRef.invalid && regPassRef.touched">La contraseña debe tener al menos 6 caracteres.</small>
 
         <button class="btn btn-primary" (click)="registrarUsuario()">Crear Cuenta</button>
 
