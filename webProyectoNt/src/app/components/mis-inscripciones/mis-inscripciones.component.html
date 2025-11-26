@@ -1,0 +1,22 @@
+<div class="mis-inscripciones">
+  <div class="mis-inscripciones-header">
+    <button class="btn-volver" routerLink="/usuario">&#8592; Volver al inicio</button>
+    <h2>Mis inscripciones</h2>
+  </div>
+
+  <p *ngIf="cargando">Cargando inscripciones...</p>
+  <p *ngIf="error">{{ error }}</p>
+
+  <div *ngIf="!cargando && !error && inscripciones.length === 0">
+    No tienes inscripciones registradas.
+  </div>
+
+  <div class="inscripcion-card" *ngFor="let ins of inscripciones">
+    <h3>{{ ins.evento?.nombre }}</h3>
+    <p>{{ ins.evento?.descripcion }}</p>
+    <p><strong>Fecha:</strong> {{ ins.evento?.fecha | date:'mediumDate' }} - {{ ins.evento?.horaInicio }}</p>
+    <p><strong>Lugar:</strong> {{ ins.evento?.lugar }}</p>
+    <p><strong>Estado:</strong> {{ ins.estado }}</p>
+    <p><strong>Fecha de inscripción:</strong> {{ ins.fechaInscripcion | date:'short' }}</p>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="eventos-lista">
+  <div class="eventos-header">
+    <button class="btn-volver" routerLink="/usuario">&#8592; Volver al inicio</button>
+    <h2>Eventos disponibles</h2>
+  </div>
+
+  <p *ngIf="cargando">Cargando eventos...</p>
+  <p *ngIf="error">{{ error }}</p>
+
+  <div *ngIf="!cargando && !error && eventos.length === 0">
+    No hay eventos disponibles por el momento.
+  </div>
+
+  <div class="evento-card" *ngFor="let e of eventos">
+    <h3>{{ e.nombre }}</h3>
+    <p>{{ e.descripcion }}</p>
+    <p><strong>Fecha:</strong> {{ e.fecha | date:'mediumDate' }} - {{ e.horaInicio }}</p>
+    <p><strong>Lugar:</strong> {{ e.lugar }}</p>
+    <p><strong>Categoría:</strong> {{ e.categoria }}</p>
+    <p><strong>Capacidad:</strong> {{ e.capacidad }}</p>
+    <button class="btn-inscribirse" (click)="inscribirse(e._id)">Inscribirse</button>
+  </div>
+</div>
