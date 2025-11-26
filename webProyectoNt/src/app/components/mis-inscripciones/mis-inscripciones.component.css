@@ -242,6 +242,38 @@
   height: 20px;
   margin-bottom: 10px;
 }
+.btn-cancelar {
+    background: linear-gradient(135deg, #e53e3e, #fc8181);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(229, 62, 62, 0.3);
+}
+
+.btn-cancelar:hover {
+    background: linear-gradient(135deg, #c53030, #f56565);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(229, 62, 62, 0.4);
+}
+
+.btn-cancelar:active {
+    transform: translateY(0);
+}
+
+.btn-cancelar::before {
+    content: '✕';
+    font-weight: bold;
+    font-size: 1.1rem;
+}
 
 @keyframes loading {
   0% {
