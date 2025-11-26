@@ -18,5 +18,8 @@
     <p><strong>Lugar:</strong> {{ ins.evento?.lugar }}</p>
     <p><strong>Estado:</strong> {{ ins.estado }}</p>
     <p><strong>Fecha de inscripción:</strong> {{ ins.fechaInscripcion | date:'short' }}</p>
+    <button *ngIf="ins.estado !== 'cancelada'" class="btn-cancelar" (click)="cancelarInscripcion(ins)">
+      Cancelar inscripción
+    </button>
   </div>
 </div>

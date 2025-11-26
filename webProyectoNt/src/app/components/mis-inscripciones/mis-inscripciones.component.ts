@@ -53,4 +53,24 @@ export class MisInscripcionesComponent implements OnInit {
       }
     });
   }
+
+  cancelarInscripcion(inscripcion: any): void {
+    if (!confirm('¿Seguro que deseas cancelar esta inscripción?')) {
+      return;
+    }
+
+    const id = inscripcion._id;
+
+    this.inscripcionService.updateInscripcion(id, {
+      estado: 'cancelada'
+    }).subscribe({
+      next: () => {
+        this.cargarMisInscripciones();
+      },
+      error: (err: any) => {
+        alert('Error al cancelar la inscripción');
+        console.error(err);
+      }
+    });
+  }
 }
